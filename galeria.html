@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria - Museu Digital do Movimento Operário</title>
+    <meta name="description" content="Galeria histórica do movimento operário">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="gallery-page">
+    <br><br>
+    <div class="gallery-container">
+        <div class="gallery-header">
+            <h1 class="gallery-title">Galeria Histórica</h1>
+            <p class="gallery-description">
+                Clique em qualquer obra para explorar sua história e importância no movimento operário
+            </p>
+        </div>
+
+        <div class="gallery-grid">
+            <div class="artwork-card" onclick="openModal(1)">
+                <img src="fotos/1.png" alt="Destruição de Máquinas pelos Luditas" class="artwork-image">
+                <div class="artwork-info">
+                    <h3 class="artwork-title">Destruição de Máquinas pelos Luditas</h3>
+                    <p class="artwork-preview">Gravura que retrata trabalhadores luditas destruindo máquinas têxteis...</p>
+                    <span class="click-hint">Clique para ver detalhes →</span>
+                </div>
+            </div>
+
+            <div class="artwork-card" onclick="openModal(2)">
+                <img src="fotos/2.png" alt="Protesto de Trabalhadores Sindicalizados" class="artwork-image">
+                <div class="artwork-info">
+                    <h3 class="artwork-title">Protesto de Trabalhadores Sindicalizados</h3>
+                    <p class="artwork-preview">Fotografia histórica de uma passeata de trabalhadores sindicalizados...</p>
+                    <span class="click-hint">Clique para ver detalhes →</span>
+                </div>
+            </div>
+
+            <div class="artwork-card" onclick="openModal(3)">
+                <img src="fotos/3.png" alt="Primeira Reunião da AIT" class="artwork-image">
+                <div class="artwork-info">
+                    <h3 class="artwork-title">Primeira Reunião da Associação Internacional dos Trabalhadores (AIT)</h3>
+                    <p class="artwork-preview">Ilustração retratando uma das primeiras reuniões da AIT...</p>
+                    <span class="click-hint">Clique para ver detalhes →</span>
+                </div>
+            </div>
+
+            <div class="artwork-card" onclick="openModal(4)">
+                <img src="fotos/4.png" alt="Cartaz da Jornada de 8 Horas" class="artwork-image">
+                <div class="artwork-info">
+                    <h3 class="artwork-title">Cartaz da Jornada de 8 Horas – 1º de Maio de 1919</h3>
+                    <p class="artwork-preview">Cartaz histórico da Confederação Geral do Trabalho (França)...</p>
+                    <span class="click-hint">Clique para ver detalhes →</span>
+                </div>
+            </div>
+
+            <div class="artwork-card" onclick="openModal(5)">
+                <img src="fotos/5.png" alt="Charge sobre o Trabalho Alienado" class="artwork-image">
+                <div class="artwork-info">
+                    <h3 class="artwork-title">Charge sobre o Trabalho Alienado</h3>
+                    <p class="artwork-preview">Charge humorística mostrando um trabalhador que, prestes a se aposentar...</p>
+                    <span class="click-hint">Clique para ver detalhes →</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="modal-body">
+                <div class="modal-image-container">
+                    <img id="modal-image" src="" alt="" class="modal-image">
+                </div>
+                <div class="modal-text">
+                    <h2 id="modal-title" class="modal-title"></h2>
+                    <div class="modal-section">
+                        <h3>Descrição</h3>
+                        <p id="modal-description" class="modal-description"></p>
+                    </div>
+                    <div class="modal-section">
+                        <h3>Importância Histórica</h3>
+                        <p id="modal-importance" class="modal-importance"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="back-button-container">
+        <button class="back-button" onclick="goToHome()">
+            ← Voltar ao Início
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
