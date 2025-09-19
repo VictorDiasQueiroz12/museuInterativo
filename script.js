@@ -40,6 +40,7 @@ function goToHome() {
     window.location.href = 'index.html';
 }
 
+
 function openModal(artworkId) {
     const artwork = artworks[artworkId];
     if (!artwork) return;
@@ -65,12 +66,14 @@ function closeModal() {
     }, 250); 
 }
 
+
 window.onclick = function(event) {
     const modal = document.getElementById('modal');
     if (event.target === modal) {
         closeModal();
     }
 }
+
 
 document.addEventListener('keydown', function(event) {
     if (event.key === 'Escape') {
@@ -80,7 +83,7 @@ document.addEventListener('keydown', function(event) {
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Animar elementos da página inicial
+    
     if (document.querySelector('.hero-content')) {
         const heroContent = document.querySelector('.hero-content');
         heroContent.style.opacity = '0';
@@ -173,6 +176,7 @@ document.getElementById("submit-quiz").addEventListener("click", () => {
 
 loadQuiz();
 
+
 document.querySelectorAll('.nav-links a[href^="#"]').forEach(anchor => {
     anchor.addEventListener("click", function(e) {
         e.preventDefault();
@@ -180,4 +184,17 @@ document.querySelectorAll('.nav-links a[href^="#"]').forEach(anchor => {
             behavior: "smooth"
         });
     });
+});
+
+
+window.addEventListener("DOMContentLoaded", () => {
+    const hash = window.location.hash;
+    if (hash) {
+        const target = document.querySelector(hash);
+        if (target) {
+            setTimeout(() => { 
+                target.scrollIntoView({ behavior: "smooth" });
+            }, 100);
+        }
+    }
 });
