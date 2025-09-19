@@ -1,14 +1,24 @@
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="shortcut icon" href="fotos/museu-britanico.png" type="image/x-icon">
     <title>Museu Digital do Movimento Operário</title>
-    <meta name="description" content="Explore a história da luta dos trabalhadores desde a Revolução Industrial até os movimentos sindicais modernos">
+    <link rel="shortcut icon" href="fotos/museu-britanico.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-        <div class="hero-container">
+    
+    <nav class="navbar">
+        <div class="nav-logo">Museu Digital</div>
+        <ul class="nav-links">
+            <li><a href="galeria.html">Galeria</a></li>
+            <li><a href="#timeline">Linha do Tempo</a></li>
+            <li><a href="#quiz">Quiz</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero-container">
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1 class="hero-title">Museu Digital</h1>
@@ -25,13 +35,47 @@
             <div class="team-info">
                 <p class="team-text">
                     <strong>Integrantes:</strong> Victor Dias, Everton Paulo e Francisco Rick.<br>
-                    <strong>Turma:</strong> 2A.
+                    <strong>Turma:</strong> 2A. <br>
+                    <strong>Instituição:</strong> Sesi Senai Florianópolis.
                 </p>
             </div>
         </div>
     </div>
 
+    <section id="timeline" class="timeline-section">
+        <h2 class="section-title">Linha do Tempo</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <span class="timeline-date">1811-<br>1816</span>
+                <div class="timeline-content">
+                    <h3>Luditas destroem máquinas</h3>
+                    <p>Trabalhadores protestam contra a substituição por máquinas, marco inicial da resistência operária.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-date">1864</span>
+                <div class="timeline-content">
+                    <h3>Fundação da AIT</h3>
+                    <p>A Associação Internacional dos Trabalhadores marca a união da classe operária em escala global.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-date">1919</span>
+                <div class="timeline-content">
+                    <h3>Conquista da Jornada de 8 horas</h3>
+                    <p>Vitória histórica dos trabalhadores: 8h de trabalho, 8h de lazer e 8h de descanso.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="quiz" class="quiz-section">
+        <h2 class="section-title">Responda as Perguntas:</h2>
+        <div id="quiz-container"></div>
+        <button id="submit-quiz" class="cta-button">Finalizar Quiz</button>
+        <p id="quiz-result"></p>
+    </section>
+
     <script src="script.js"></script>
 </body>
 </html>
-
