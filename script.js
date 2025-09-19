@@ -31,7 +31,7 @@ const artworks = {
     }
 };
 
-// Funções de navegação
+
 function goToGallery() {
     window.location.href = 'galeria.html';
 }
@@ -40,7 +40,6 @@ function goToHome() {
     window.location.href = 'index.html';
 }
 
-// Funções do modal
 function openModal(artworkId) {
     const artwork = artworks[artworkId];
     if (!artwork) return;
@@ -66,7 +65,6 @@ function closeModal() {
     }, 250); 
 }
 
-// Fechar modal quando clicar fora dele
 window.onclick = function(event) {
     const modal = document.getElementById('modal');
     if (event.target === modal) {
@@ -74,14 +72,13 @@ window.onclick = function(event) {
     }
 }
 
-// Fechar modal com a tecla ESC
 document.addEventListener('keydown', function(event) {
     if (event.key === 'Escape') {
         closeModal();
     }
 });
 
-// Animações suaves ao carregar a página
+
 document.addEventListener('DOMContentLoaded', function() {
     // Animar elementos da página inicial
     if (document.querySelector('.hero-content')) {
@@ -96,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 100);
     }
     
-    // Animar cards da galeria
+
     if (document.querySelectorAll('.artwork-card')) {
         const cards = document.querySelectorAll('.artwork-card');
         cards.forEach((card, index) => {
@@ -110,4 +107,77 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 200 + (index * 100));
         });
     }
+});
+
+
+const quizData = [
+    {
+        question: "Quem foram os Luditas?",
+        options: [
+            "Trabalhadores que destruíam máquinas",
+            "Primeiros sindicalistas do Brasil",
+            "Nobres que apoiavam operários"
+        ],
+        answer: 0
+    },
+    {
+        question: "O que representou a fundação da AIT em 1864?",
+        options: [
+            "O início da Revolução Industrial",
+            "A união internacional da classe trabalhadora",
+            "A invenção da máquina a vapor"
+        ],
+        answer: 1
+    },
+    {
+        question: "Qual conquista ficou conhecida como '8-8-8'?",
+        options: [
+            "8 horas de lazer, 8 horas de sono e 8 horas de estudo",
+            "8 horas de trabalho, 8 horas de lazer e 8 horas de descanso",
+            "8 horas de protesto, 8 horas de greve e 8 horas de negociação"
+        ],
+        answer: 1
+    }
+];
+
+function loadQuiz() {
+    const quizContainer = document.getElementById("quiz-container");
+    quizContainer.innerHTML = "";
+    quizData.forEach((q, i) => {
+        const questionDiv = document.createElement("div");
+        questionDiv.classList.add("quiz-question");
+        questionDiv.innerHTML = `<h3>${i+1}. ${q.question}</h3>`;
+        q.options.forEach((opt, idx) => {
+            const label = document.createElement("label");
+            label.classList.add("quiz-option");
+            label.innerHTML = `
+                <input type="radio" name="q${i}" value="${idx}"> ${opt}
+            `;
+            questionDiv.appendChild(label);
+        });
+        quizContainer.appendChild(questionDiv);
+    });
+}
+
+document.getElementById("submit-quiz").addEventListener("click", () => {
+    let score = 0;
+    quizData.forEach((q, i) => {
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
+        if (selected && parseInt(selected.value) === q.answer) {
+            score++;
+        }
+    });
+    document.getElementById("quiz-result").textContent =
+        `Você acertou ${score} de ${quizData.length} questões!`;
+});
+
+loadQuiz();
+
+document.querySelectorAll('.nav-links a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth"
+        });
+    });
 });
